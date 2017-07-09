@@ -1,0 +1,8 @@
+{
+  "camera_name" : "<Your camera name>",
+  "endpoint" : "https://<Your S3 Endpoint>:<Port>",
+  "bucket" : "<Your S3 Bucket>",
+  "access_key" : "<Your Access Key for S3>",
+  "secret_access_key" : "<Your Secret Access Key for S3>",
+  "camera_command" : "fswebcam -r 1280x720 --jpeg 85 --no-banner -S 20"
+}
