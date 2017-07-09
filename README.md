@@ -21,7 +21,7 @@ As with any tech challenge proceed in steps and verify all is well (including yo
 2. search for Minio docker on Raspbeery (Hint : Minio on ARM)
 3. install Minio Docker
 4. configure new bucket via web access and provide read-write permissions.
-5. save you credentials 
+5. save your credentials 
 
 ### Setup the camera-webservice on the Raspberry Pi
 1. Find the steps here: [camera-webservice/](camera-webservice/)
@@ -33,5 +33,5 @@ As with any tech challenge proceed in steps and verify all is well (including yo
 2. Open web browser and connect to node-red
 2. configure your flow to get tweet trigers and send tweet with link for you Team member photo. 
 
-> Can you see you tweets on the screen?  yes, Yes, Success!
+> Can you see you tweets on the screen?  Yes, Success!
 
