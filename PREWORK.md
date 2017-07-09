@@ -70,5 +70,5 @@ There are many Docker tutorials on YouTube. I would recommend setting aside 1-2 
 ### Docker on RaspberryPI
 Docker enjoys only limited support on RaspberryPI, it's recommended to understand the limitation prior the Hack-Day. 
 
-Node-Red
+### Node-Red
 During the hack-Day activity you will use a Node-Red for flow and coding, so it is recommended you come in with some basic Node-red knowledge on Docker.
