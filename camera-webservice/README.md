@@ -1,4 +1,4 @@
-#camera-webservice
+# camera-webservice
 
 ## Summary: 
 Here is a Python webservice called Deploywebservice.py written for this event.  Google won't help you with any information specifically about the script, but you will find lots of information about the libraries used in the script.  Proceed in steps.
@@ -15,7 +15,7 @@ Here is a Python webservice called Deploywebservice.py written for this event.  
 1. Update all parameters to meet your needs
 1. For the `camera_command` parameter these might be helpful:
     * Example linux USB camera: `fswebcam -r 1280x720 --jpeg 85 --no-banner -S 20`
-    * Example native raspberry camera module: `raspistill -o`
+   
 
 
 ### 3 - Run the Camera webservice
