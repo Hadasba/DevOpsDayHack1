@@ -1,4 +1,4 @@
-
+![alt text](https://github.com/Hadasba/DevOpsDayHack1/blob/master/GameOfDevOps.jpg)
 # Hack-Day instructions
 
 The hack-Day is intended to be a lightly structured event designed to allow hackers to explore, innovate and learn. The following instructions are provided as general roadmap to provide some structure.
