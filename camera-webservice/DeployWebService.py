@@ -79,10 +79,34 @@ class TakePhotoAPI(Resource):
 		## Create special datetime format that ES expects
 		now = datetime.utcnow()
 		ts = now.strftime("%Y-%m-%dT%H:%M:%S") + ".%03d" % (now.microsecond / 1000) + "Z"
-		res_body = { "timestamp": ts, "url": url, "filesize": filesize, "camera_name": conf['camera_name'], "camera_ip": ip_address}
+		res_body = { "timestamp": ts, "url": url, "filesize": filesize, "filename": filename, "camera_name": conf['camera_name'], "camera_ip": ip_address}
 
 		# Return success	
 		return make_response(jsonify(res_body), 200)
+		
+class GetPhotoAPI(Resource):
+
+	# route GET requests to POST (for debugging only)
+	def get(self):
+		filename = request.args['file']
+		
+		# Get file content from S3 endpoint
+		session = boto3.session.Session(aws_access_key_id=conf['access_key'], aws_secret_access_key=conf['secret_access_key'])
+		s3 = session.resource(service_name='s3', endpoint_url=conf['endpoint'], verify=False)
+		obj = s3.Object(conf['bucket'], filename)
+		data = obj.get()['Body'].read()
+		directory = '/tmp/hackathon/'
+		if not os.path.exists(directory):
+			os.makedirs(directory)
+		out_file = directory  + filename
+		file = open(out_file, 'w+')
+		file.write(data)
+		file.close()
+		filesize = os.path.getsize(out_file)
+		res_body = { "out_file":out_file, "filesize": filesize }
+		return make_response(jsonify(res_body), 200)
+
+
 
 # Setup Flask and REST Endpoint
 app = Flask(__name__, static_url_path="")
@@ -90,6 +114,7 @@ api = Api(app)
 
 api.add_resource(RootAPI, '/')
 api.add_resource(TakePhotoAPI, '/take_photo')
+api.add_resource(GetPhotoAPI, '/get_photo')
 
 if __name__ == '__main__':
 
